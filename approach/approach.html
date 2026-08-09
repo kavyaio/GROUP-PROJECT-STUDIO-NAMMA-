@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approach</title>
+    <link rel="stylesheet" href="/home/nav.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+    font-family: "GT Pressura Mono Regular Regular";
+    src: url("https://db.onlinewebfonts.com/t/226f58ab113a6d821def90a7d6dc2427.eot");
+    src: url("https://db.onlinewebfonts.com/t/226f58ab113a6d821def90a7d6dc2427.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/226f58ab113a6d821def90a7d6dc2427.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/226f58ab113a6d821def90a7d6dc2427.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/226f58ab113a6d821def90a7d6dc2427.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/226f58ab113a6d821def90a7d6dc2427.svg#GT Pressura Mono Regular Regular")format("svg");
+}
+        .saira-extra-condensed-black {
+  font-family: "Saira Extra Condensed", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+        .content {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 99vw;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content>h1 {
+            font-size: 200px;
+            
+            letter-spacing: 1;
+            font-weight: bolder;
+            line-height: 1;
+        }
+        #heading{
+            font-family: GT Pressura Mono Regular Regular;
+            font-weight: 300;
+            font-size: 20px;
+        }
+        .animate {
+            transform: rotateX(90deg);
+            transition-duration: 3s;
+            transform-origin: bottom;
+            font-size: 60px;
+            text-align: center;
+        }
+
+        .animate.show {
+            transform: rotateX(0deg);
+        }
+
+        .des {
+            height: 50vh;
+            width: 99vw;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .container-title {
+            width: 50%;
+            height: 100%;
+
+        }
+
+        .container-description {
+            width: 50%;
+            height: 100%;
+            text-align: justify;
+            
+        }
+
+        .des {
+            flex-direction: row;
+            text-align: none;
+        }
+
+        .p {
+            font-size: 20px;
+            text-align: left;
+            font-weight: 400;
+        }
+
+        .des1 {
+            padding: 20px;
+            justify-content: left;
+            align-items: baseline;
+            height: 40vh;
+
+        }
+        .des1 > h1{
+            font-size: 100px;
+        }
+        .list {
+            height: 120vh;
+            gap: 50px;
+            font-size: 13px;
+            
+        }
+
+        .box1 {
+            height: 200px;
+            width: 60%;
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .div1{
+            margin-left: 100px;
+            width: 30%;
+        }
+        .div2{
+            width: 70%;
+        }
+
+        .li{
+            text-align: left;
+            font-size: 30px;
+        }
+        .p1{
+            font-size: 16px;
+            text-align: left;
+            font-weight: 300;
+        }
+        #p2{
+          font-weight: 300;  
+        }
+        .des2{
+            height: 20vh;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        .box2{
+            height: 100%;
+            width: 50%;
+            
+        }
+        .box3{
+            height: 100%;
+            width: 50%;
+            
+        }
+        .h1{
+            text-align: left;
+        }
+        .h2{
+            text-align: left;
+            font-size: 30px;
+        }
+        .box3 p{
+            margin-top: 30px;
+        }
+       .frames{
+        width: 100%;
+        height: 300px;
+        
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        gap: 10px;
+
+       }
+       video{
+        height: 100%;
+        width: 100%;
+       }
+       
+    </style>
+</head>
+
+<body>
+    <section class="content">
+        <h1 class="animate">SHARP MINDS</h1>
+        <h1 class="animate">ICONIC MOVES</h1>
+
+    </section>
+    <section class="content des">
+        <div class="container-title">
+            <h1 id="heading">OUR APPROACH</h1>
+        </div>
+
+        <div class="container-description">
+            <p class="animate p">We don't sell a method. We craft yours. We start by understanding who you are and</p>
+            <p class="animate p">where you are headed. We dig deep, explore every angle, and build from what</p>
+            <p class="animate p">makes you stand out. We don't just work with brand teams - we become part of</p>
+            <p class="animate p">them. Every move is intentional. Every output aligned. Our approach? Flexible,</p>
+            <p class="animate p">precise, and built around you. Because great result don't come from rigid formulas,</p>
+            <p class="animate p">they come from tailored processes that scale, envolve, and stay sharp across every</p>
+            <p class="animate p">touchpoint.</p>
+        </div>
+    </section>
+
+    <section class="content des1">
+        <h1 class="animate">MAKE IT AS</h1>
+        <h1 class="animate">SIMPLE AS</h1>
+        <h1 class="animate">POSSIBLE</h1>
+    </section>
+    <section class="content list">
+        <div class="box1">
+            <div class="div1">
+                <h1 id="heading">START</h1>
+            </div>
+            <div class="div2">
+                <h1 class="animate li">Own your difference</h1>
+                <p class="animate p1" id="p2">
+                    No one remembers second place. Or third. We dissect your market with surgical precision,
+                </p>
+                <p class="animate p1" id="p2">
+                    hunting for the blind spots that others overlook. Our mission? To unearth what sets you
+                </p>
+                <p class="animate p1" id="p2">
+                    apart. To put it under the spotlight. And to turn it into your strategic advantage.
+                </p>
+            </div>
+        </div>
+
+        <div class="box1">
+            <div class="div1">
+                <h1 id="heading">IDEA</h1>
+            </div>
+            <div class="div2">
+                <h1 class="animate li">Challenge everything</h1>
+                <p class="animate p1" id="p2">Innovation doesn't come from comfort. It comes from doubt. We question everything.</p>
+                <p class="animate p1" id="p2">Relentlessly. Methodically. Trends? Best practices? Market certainties? All of them are suspect.</p>
+                <p class="animate p1" id="p2">All of them are challenged. Pixel by pixel. So we can reach places no one else has.</p>
+            </div>
+        </div>
+
+        <div class="box1">
+            <div class="div1">
+                <h1 id="heading">DESIGN</h1>
+            </div>
+            <div class="div2">
+                <h1 class="animate li">Beyond aesthetics</h1>
+                <p class="animate p1" id="p2">It's not just about winning awards. it's about winning customers.</p>
+                <p class="animate p1" id="p2">Our design is built to solve, to sell, to make an impact.</p>
+                <p class="animate p1" id="p2">Every color is tested. Every spacing calculated. Every interaction optimized. The result? A</p>
+                <p class="animate p1" id="p2">design that performs as well as it impresses.</p>
+            </div>
+        </div>
+
+        <div class="box1">
+            <div class="div1">
+                <h1 id="heading">CODING</h1>
+            </div>
+            <div class="div2">
+                <h1 class="animate li">Performance mindset</h1>
+                <p class="animate p1" id="p2">User patience? A myth. Their tolerance for slow websites? Zero.</p>
+                <p class="animate p1" id="p2">We build solutions that move fast and stay fast. No-code, pushed to the limit. Resources</p>
+                <p class="animate p1" id="p2">refined. Load times cut. Verified performance. Smoothness isn't a luxury, it's the baseline.</p>
+                <p class="animate p1" id="p2">Every millisecond counts.</p>
+            </div>
+        </div>
+
+        <div class="box1">
+            <div class="div1">
+                <h1 id="heading">OPTIMIZATION</h1>
+            </div>
+            <div class="div2">
+                <h1 class="animate li">Never satisfied,</h1>
+                <h1 class="animate li">never done</h1>
+                <p class="animate p1" id="p2">The launch is just the first chapter, not the final one. We stay by your side long after launch</p>
+                <p class="animate p1" id="p2">day. We monitor the numbers. Listen to the feedback. Continuously refine and improve. A</p>
+                <p class="animate p1" id="p2">site that doesn't evolve is a site that falls behind. We refuse to stagnate, for you and for us.</p>
+            </div>
+        </div>
+
+    </section>
+    <section class="content des2">
+        <div class="box2">
+            <h1 class="animate h1">LET'S WORK</h1>
+            <h1 class="animate h1">TOGETHER</h1>
+        </div>
+        <div class="box3">
+            <h2 class="animate h2">Work with us if average isn't your thing.</h2>
+            <h2 class="animate h2">Drop it, we'll build it!</h2>
+
+            <p>SAY HELLO -></p>
+        </div>
+    </section>
+
+    <section class="frames">
+       <div>
+
+           <video loop autoplay src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa249c8ad1d2624abf3d5_Footer-Service-designV2-transcode.mp4"></iframe>
+       </div>
+       
+       <div>
+
+           <video loop autoplay src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa1926bb2adbd4315d488_Zefir%20footerV2-transcode.mp4"></iframe>
+       </div>
+       
+       <div>
+
+           <video loop autoplay src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa2440a49684a10b9e055_FOOTER%20-%20BRANDINGV2-transcode.mp4"></iframe>
+       </div>
+       
+       <div>
+
+           <video loop autoplay src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa20fc54b7796aaa5edf6_SILVR-Video%201%20footersV3-transcode.mp4"></iframe>
+       </div>
+       
+       <div>
+
+           <video loop autoplay src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa0feb2681e0616dc3b3a_Footer-supercomics-transcode.mp4"></iframe>
+       </div>
+       
+      <div>
+
+          <video loop autoplay src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa22f852959114b6c7b56_OSOL-COVER-footer-V2-transcode.mp4"></iframe>
+      </div>
+       
+    </section>
+</body>
+<script src="/home/navbar.js"></script>
+<script>
+    let text = document.querySelectorAll(".animate");
+
+    console.log(text);
+    let observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting == true) {
+                entry.target.classList.add("show");
+            }
+            else {
+                entry.target.classList.remove("show");
+            }
+        })
+    })
+
+    text.forEach((text) => {
+        observer.observe(text);
+    })
+
+
+</script>
+
+</html>
