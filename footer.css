@@ -1,0 +1,336 @@
+/* ==========================================================================
+   FOOTER COMPONENT STYLING (Studio Namma)
+   ========================================================================== */
+
+#main-footer {
+  width: 100%;
+  background-color: transparent;
+  padding: 200px 60px 120px 60px;
+  box-sizing: border-box;
+  font-family: "GT Pressura Mono Regular Regular", monospace, sans-serif;
+  color: #000000;
+  transition: color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-theme #main-footer {
+  color: #ffffff;
+}
+
+/* 1. Client Logos Bar (Row 1) */
+.footer-logos-row {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto 100px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(24px, 4.5vw, 65px);
+  padding: 0 20px 80px 20px;
+}
+
+.footer-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  opacity: 0.88;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  color: #000000;
+}
+
+body.dark-theme .footer-logo-item {
+  color: #ffffff;
+}
+
+.footer-logo-item:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.footer-logo-item svg {
+  height: clamp(38px, 3.5vw, 56px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* 2. Main Hero CTA Block (Row 2): LET'S WORK TOGETHER + Side Statement */
+.footer-hero-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 90px;
+}
+
+.footer-cta-left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-work-title {
+  font-family: "Saira Extra Condensed", sans-serif;
+  font-weight: 900;
+  font-size: clamp(70px, 12vw, 190px);
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #000000;
+}
+
+body.dark-theme .footer-work-title {
+  color: #ffffff;
+}
+
+.footer-together-line {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-photo-badge {
+  width: clamp(90px, 10vw, 150px);
+  height: clamp(60px, 7vw, 100px);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  background: #222;
+}
+
+.footer-photo-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.footer-together-title {
+  font-family: "Saira Extra Condensed", sans-serif;
+  font-weight: 900;
+  font-size: clamp(70px, 12vw, 190px);
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #000000;
+}
+
+body.dark-theme .footer-together-title {
+  color: #ffffff;
+}
+
+.footer-cta-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 420px;
+  padding-bottom: 25px;
+}
+
+.footer-cta-statement {
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  font-family: "Figtree", sans-serif;
+  font-weight: 500;
+  color: #000000;
+}
+
+body.dark-theme .footer-cta-statement {
+  color: #e5e5e5;
+}
+
+.footer-say-hello {
+  font-family: "GT Pressura Mono Regular Regular", monospace, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  width: fit-content;
+}
+
+.footer-say-hello:hover {
+  opacity: 0.6;
+  transform: translateX(4px);
+}
+
+/* 3. Client Showcase Cards Row (Row 3) */
+.footer-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(10px, 1.2vw, 18px);
+  width: 100%;
+  margin-bottom: 90px;
+}
+
+.footer-card {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1a1a1a;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.footer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+}
+
+.footer-card video,
+.footer-card iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  border-radius: 8px;
+  display: block;
+  pointer-events: none;
+}
+
+/* 4. Navigation Links & Company Info (Row 4) */
+.footer-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  width: 100%;
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.footer-nav-columns {
+  display: flex;
+  gap: 60px;
+}
+
+.footer-links-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  width: fit-content;
+}
+
+.footer-link:hover {
+  opacity: 0.6;
+}
+
+.footer-details-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-details-group p {
+  margin: 0;
+}
+
+.footer-contact-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.footer-contact-link:hover {
+  opacity: 0.6;
+}
+
+/* 5. Giant NAMMA Banner at the bottom — rises from bottom on scroll */
+.footer-namma-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 100px;
+  margin-bottom: 0;
+  overflow: visible;
+}
+
+.footer-giant-namma {
+  font-family: "Saira Extra Condensed", sans-serif;
+  font-weight: 900;
+  /* font-size set by fitNammaText() JS */
+  font-size: 28vw;
+  line-height: 0.8;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  text-align: center;
+  width: 100%;
+  display: block;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+body.dark-theme .footer-giant-namma {
+  color: #ffffff;
+}
+
+/* Shared animate/show — same 3D flip as LET'S WORK TOGETHER but longer duration for NAMMA */
+.footer-namma-wrapper .animate {
+  transform: rotateX(90deg);
+  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom;
+}
+
+.footer-namma-wrapper .animate.show {
+  transform: rotateX(0deg);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1100px) {
+  .footer-logos-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+  }
+  .footer-hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  .footer-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .footer-info-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 650px) {
+  #main-footer {
+    padding: 60px 20px 100px 20px;
+  }
+  .footer-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-nav-columns {
+    gap: 30px;
+  }
+}
