@@ -1,0 +1,1015 @@
+/* ==========================================================================
+   STUDIO NAMMA - PLANS PAGE DESIGN SYSTEM & STYLES
+   ========================================================================== */
+
+/* --- 1. TYPOGRAPHY & FONT FACES --- */
+@font-face {
+  font-family: 'Gt Pressura Mono';
+  src: url('https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/679cbd779f2ae36caa619a62_GT%20Pressura%20Mono%20Light%20Web.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mixtape Extra Condensed';
+  src: url('https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/68396a14a9b4604f87fdbba4_MixtapeExtraCondensed-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/6839706715b5360bdb1d1ffd_NeueMontreal-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mixtape';
+  src: url('https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/68ca9eead3592b9b0feee94b_Mixtape-NormalSemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mixtape';
+  src: url('https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/68cab20c0e1c2178793b353b_Mixtape-NormalRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback Google Fonts for cross-platform fidelity */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* --- 2. CSS CUSTOM PROPERTIES & TOKENS --- */
+:root {
+  /* Color Palette */
+  --bg-color: #e4e4e4;
+  --text-color: #111111;
+  --text-muted: rgba(17, 17, 17, 0.45);
+  --text-subtle: rgba(17, 17, 17, 0.25);
+  --border-light: rgba(17, 17, 17, 0.12);
+  --border-medium: rgba(17, 17, 17, 0.25);
+  --border-dark: #111111;
+  --card-hover-bg: rgba(0, 0, 0, 0.02);
+
+  /* Typography Sizes */
+  --font-h1: 13rem;
+  --line-height-h1: 10.5rem;
+  --letter-spacing-h1: -0.6rem;
+
+  --font-h2: 10rem;
+  --line-height-h2: 8.6rem;
+  --letter-spacing-h2: -0.4rem;
+
+  --font-h3: 3.5rem;
+  --line-height-h3: 3.2rem;
+  --letter-spacing-h3: -0.15rem;
+
+  --font-h4: 1.9rem;
+  --line-height-h4: 2rem;
+
+  --font-main: 1.4rem;
+  --line-height-main: 1.7rem;
+
+  --font-mono: 0.9rem;
+  --line-height-mono: 1.05rem;
+  --letter-spacing-mono: 0.12rem;
+
+  /* Spacing Tokens */
+  --container-padding: 2rem;
+  --container-max-width: 120rem;
+  --border-radius: 0.4rem;
+
+  /* Animation Easings */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* --- 3. RESET & BASE RULES --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(17, 17, 17, 0.2) transparent;
+}
+
+body {
+  font-family: 'Mixtape', 'Neue Montreal', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: var(--font-main);
+  line-height: var(--line-height-main);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* --- 4. LAYOUT UTILITIES --- */
+.page-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.padding-global {
+  width: 100%;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-large {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- 5. TYPOGRAPHY CLASSES --- */
+.text-mono {
+  font-family: 'Gt Pressura Mono', 'Space Mono', 'SFMono-Regular', Consolas, monospace;
+  font-size: var(--font-mono);
+  line-height: var(--line-height-mono);
+  letter-spacing: var(--letter-spacing-mono);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.text-mono_wrapper {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.heading-style-h1 {
+  font-family: 'Mixtape Extra Condensed', 'Anton', 'Syne', Impact, sans-serif;
+  font-size: var(--font-h1);
+  line-height: var(--line-height-h1);
+  letter-spacing: var(--letter-spacing-h1);
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0;
+}
+
+.heading-style-h2 {
+  font-family: 'Mixtape Extra Condensed', 'Anton', 'Syne', Impact, sans-serif;
+  font-size: var(--font-h2);
+  line-height: var(--line-height-h2);
+  letter-spacing: var(--letter-spacing-h2);
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0;
+}
+
+.heading-style-h3 {
+  font-family: 'Mixtape', 'Neue Montreal', 'Syne', sans-serif;
+  font-size: var(--font-h3);
+  line-height: var(--line-height-h3);
+  letter-spacing: var(--letter-spacing-h3);
+  text-transform: none;
+  font-weight: 600;
+  margin: 0;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+/* --- 6. HERO SECTION --- */
+.section_hero {
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero_component {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero_heading_container {
+  max-width: 86rem;
+  width: 100%;
+  text-align: center;
+  margin: auto 0;
+}
+
+.hero_heading_container h1 {
+  font-family: 'Mixtape Extra Condensed', 'Anton', 'Syne', Impact, sans-serif;
+  font-size: var(--font-h1);
+  line-height: var(--line-height-h1);
+  letter-spacing: var(--letter-spacing-h1);
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0;
+}
+
+.hero_bottom {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.hero_bottom_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.scroll_indicator {
+  transition: transform 0.3s var(--ease-out-expo), color 0.3s ease;
+  animation: floatScroll 2.2s infinite ease-in-out;
+}
+
+.hero_bottom_wrapper:hover .scroll_indicator {
+  color: #000;
+  transform: translateY(3px);
+}
+
+@keyframes floatScroll {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+/* --- 7. INTRODUCTION SECTION --- */
+.section_intro {
+  margin-top: 5rem;
+  margin-bottom: 12.5rem;
+  position: relative;
+}
+
+.intro_component {
+  display: grid;
+  grid-template-columns: 7fr 6fr;
+  grid-column-gap: 3rem;
+  align-items: flex-start;
+  position: relative;
+}
+
+.intro_heading_col {
+  padding-top: 0.2rem;
+}
+
+.intro_heading_col h2 {
+  font-family: 'Gt Pressura Mono', 'Space Mono', monospace;
+  font-size: var(--font-mono);
+  line-height: var(--line-height-mono);
+  letter-spacing: var(--letter-spacing-mono);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.intro_description_col {
+  position: relative;
+}
+
+.intro_description {
+  font-family: 'Mixtape', 'Neue Montreal', 'Plus Jakarta Sans', sans-serif;
+  font-size: var(--font-main);
+  line-height: var(--line-height-main);
+  color: var(--text-color);
+  font-weight: 400;
+  max-width: 44rem;
+}
+
+/* --- 8. PLANS SECTION --- */
+.section_packs {
+  margin-bottom: 14rem;
+  position: relative;
+}
+
+.packs_component {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+  position: relative;
+}
+
+.packs_header {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.packs_big_title {
+  font-family: 'Mixtape Extra Condensed', 'Anton', 'Syne', Impact, sans-serif;
+  font-size: var(--font-h2);
+  line-height: var(--line-height-h2);
+  letter-spacing: var(--letter-spacing-h2);
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0;
+  display: inline-block;
+}
+
+/* Capsule animated visuals inside headings */
+.cta_visual {
+  display: inline-flex;
+  vertical-align: middle;
+  height: 7rem;
+  width: 0rem;
+  margin-right: 0.8rem;
+  margin-left: 0.2rem;
+  border-radius: var(--border-radius);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  will-change: width;
+  transition: width 1.2s var(--ease-out-expo);
+}
+
+.cta_visual.is-pack {
+  background-image: url('https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/6890bf3771aca02a7b441965_shared%20(21).gif');
+}
+
+.cta_visual.is-pack2 {
+  background-image: url('https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985/6890bf8409aa4ac0af502522_shared%20(22).gif');
+}
+
+.cta_visual.active {
+  width: 10rem;
+}
+
+.packs_header_label {
+  padding-top: 1rem;
+}
+
+.packs_header_label h3 {
+  font-family: 'Gt Pressura Mono', 'Space Mono', monospace;
+  font-size: var(--font-mono);
+  line-height: var(--line-height-mono);
+  letter-spacing: var(--letter-spacing-mono);
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* Services Content Split: Left Sticky Column & Right Plans List */
+.services_content {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-column-gap: 2rem;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Left sticky column with interactive navigation tabs */
+.text-mono_sticky {
+  position: sticky;
+  top: 45vh;
+  z-index: 10;
+}
+
+.packs_words {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.pack_tab {
+  cursor: pointer;
+  opacity: 0.28;
+  transition: opacity 0.4s ease, transform 0.3s ease, color 0.3s ease;
+  user-select: none;
+  display: inline-block;
+}
+
+.pack_tab:hover {
+  opacity: 0.7;
+}
+
+.pack_tab.active {
+  opacity: 1;
+  font-weight: 500;
+}
+
+/* Right plans list */
+.packs_list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.packs_item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.125rem;
+  width: 100%;
+  padding-bottom: 15rem;
+  position: relative;
+  transition: opacity 0.4s ease;
+}
+
+.packs_item:last-child {
+  padding-bottom: 0;
+}
+
+.packs_item_header {
+  width: 100%;
+}
+
+.packs_item_header h3 {
+  font-family: 'Mixtape', 'Neue Montreal', 'Syne', sans-serif;
+  font-size: var(--font-h3);
+  line-height: var(--line-height-h3);
+  letter-spacing: var(--letter-spacing-h3);
+  font-weight: 600;
+}
+
+.packs_description_wrapper {
+  display: grid;
+  grid-template-columns: 6fr 3fr;
+  grid-column-gap: 3rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.max-width-plan {
+  width: 100%;
+  max-width: 40rem;
+}
+
+.max-width-plan p {
+  font-family: 'Mixtape', 'Neue Montreal', 'Plus Jakarta Sans', sans-serif;
+  font-size: var(--font-main);
+  line-height: var(--line-height-main);
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+/* Skills/Services Pill List */
+.skills_list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  flex: none;
+}
+
+.skill_pill {
+  display: inline-block;
+  font-family: 'Gt Pressura Mono', 'Space Mono', monospace;
+  font-size: var(--font-mono);
+  line-height: var(--line-height-mono);
+  letter-spacing: var(--letter-spacing-mono);
+  text-transform: uppercase;
+  color: var(--text-color);
+  padding: 0.2rem 0;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.skill_pill:hover {
+  transform: translateX(4px);
+  color: #000;
+}
+
+/* Small interactive link buttons */
+.small-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text-color);
+  height: var(--line-height-mono);
+  transition: transform 0.3s var(--ease-out-expo), color 0.3s ease;
+  position: relative;
+  padding: 0.2rem 0;
+}
+
+.small-link .text-mono {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.small-link_arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-1px);
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.small-link_arrow svg {
+  width: 14px;
+  height: 8px;
+  fill: currentColor;
+}
+
+.small-link:hover .small-link_arrow {
+  transform: translate(5px, -1px);
+}
+
+.small-link:hover {
+  color: #000;
+}
+
+/* --- 9. CUSTOM PLAN SECTION --- */
+.section_side-cta {
+  margin-bottom: 14rem;
+  position: relative;
+}
+
+.side_cta_component {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 58.3333%;
+  padding-right: 8.33333%;
+  position: relative;
+}
+
+.side_cta_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.125rem;
+  max-width: 30rem;
+}
+
+.side_cta_content h2 {
+  font-family: 'Gt Pressura Mono', 'Space Mono', monospace;
+  font-size: var(--font-mono);
+  line-height: var(--line-height-mono);
+  letter-spacing: var(--letter-spacing-mono);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+.side_cta_content p {
+  font-family: 'Gt Pressura Mono', 'Space Mono', monospace;
+  font-size: var(--font-mono);
+  line-height: calc(var(--line-height-mono) * 1.35);
+  letter-spacing: var(--letter-spacing-mono);
+  text-transform: uppercase;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+/* --- 10. FINAL INFORMATION SECTION --- */
+.section_smart {
+  margin-bottom: 16rem;
+  position: relative;
+}
+
+.smart_component {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  position: relative;
+}
+
+.smart_header_title {
+  font-family: 'Mixtape Extra Condensed', 'Anton', 'Syne', Impact, sans-serif;
+  font-size: var(--font-h2);
+  line-height: var(--line-height-h2);
+  letter-spacing: var(--letter-spacing-h2);
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0;
+  display: inline-block;
+}
+
+.smart_content {
+  display: grid;
+  grid-template-columns: 2fr 9fr;
+  grid-column-gap: 3rem;
+  align-items: flex-start;
+  position: relative;
+}
+
+.smart_content .text-mono_sticky {
+  position: sticky;
+  top: 10rem;
+}
+
+.smart_list {
+  display: flex;
+  flex-direction: column;
+  gap: 9rem;
+  flex: 1;
+}
+
+.smart_item {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  grid-column-gap: 3rem;
+  max-width: 72rem;
+  align-items: flex-start;
+}
+
+.smart_item_title h3 {
+  font-family: 'Mixtape', 'Neue Montreal', 'Syne', sans-serif;
+  font-size: var(--font-h3);
+  line-height: var(--line-height-h3);
+  letter-spacing: var(--letter-spacing-h3);
+  font-weight: 600;
+  margin: 0;
+}
+
+.smart_item_desc p {
+  font-family: 'Mixtape', 'Neue Montreal', 'Plus Jakarta Sans', sans-serif;
+  font-size: var(--font-main);
+  line-height: var(--line-height-main);
+  color: var(--text-color);
+  font-weight: 400;
+  margin: 0;
+}
+
+/* --- 11. SCROLL & ENTRANCE ANIMATIONS (VANILLA CSS) --- */
+.fade-up-element {
+  opacity: 0;
+  transform: translateY(2.5rem);
+  will-change: opacity, transform;
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+}
+
+.fade-up-element.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* Line appear wrapper for editorial feel */
+.line-appear-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.line-appear-content {
+  opacity: 0;
+  transform: translateY(105%);
+  will-change: transform, opacity;
+  transition: transform 1s var(--ease-out-expo), opacity 0.8s ease;
+}
+
+.line-appear-content.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card hover reactivity */
+.packs_item {
+  position: relative;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  transition: background-color 0.35s ease, opacity 0.4s ease;
+}
+
+.packs_item:hover {
+  background-color: var(--card-hover-bg);
+}
+
+/* --- 12. RESPONSIVE MEDIA QUERIES --- */
+
+/* Ultra-wide Desktops (>1600px) */
+@media screen and (min-width: 1600px) {
+  :root {
+    --container-padding: 3.5rem;
+  }
+}
+
+/* Standard Desktops / Laptops (1025px - 1440px) */
+@media screen and (max-width: 1440px) {
+  :root {
+    --font-h1: 11.5rem;
+    --line-height-h1: 9.5rem;
+    --letter-spacing-h1: -0.5rem;
+
+    --font-h2: 8.5rem;
+    --line-height-h2: 7.5rem;
+    --letter-spacing-h2: -0.35rem;
+
+    --font-h3: 3.2rem;
+    --line-height-h3: 3rem;
+
+    --font-main: 1.35rem;
+    --line-height-main: 1.65rem;
+  }
+
+  .cta_visual.active {
+    width: 8.5rem;
+  }
+}
+
+/* Tablets Landscape (992px - 1024px) */
+@media screen and (max-width: 1024px) {
+  :root {
+    --font-h1: 9.5rem;
+    --line-height-h1: 7.75rem;
+    --letter-spacing-h1: -0.4rem;
+
+    --font-h2: 7rem;
+    --line-height-h2: 6.25rem;
+    --letter-spacing-h2: -0.3rem;
+
+    --font-h3: 3rem;
+    --line-height-h3: 2.9rem;
+
+    --font-main: 1.25rem;
+    --line-height-main: 1.65rem;
+
+    --container-padding: 1.5rem;
+  }
+
+  .cta_visual {
+    height: 5rem;
+    border-radius: 0.25rem;
+  }
+
+  .cta_visual.active {
+    width: 7rem;
+  }
+
+  .intro_component {
+    grid-template-columns: 4fr 6fr;
+    grid-column-gap: 2rem;
+  }
+
+  .packs_component {
+    gap: 6rem;
+  }
+
+  .packs_description_wrapper {
+    grid-template-columns: 5fr 3fr;
+    grid-column-gap: 2rem;
+  }
+
+  .side_cta_component {
+    padding-left: 40%;
+    padding-right: 5%;
+  }
+
+  .smart_content {
+    grid-template-columns: 2fr 8fr;
+    grid-column-gap: 2rem;
+  }
+
+  .smart_item {
+    grid-template-columns: 5fr 7fr;
+    grid-column-gap: 2rem;
+  }
+}
+
+/* Tablets Portrait (768px - 991px) */
+@media screen and (max-width: 991px) {
+  .section_intro {
+    margin-bottom: 9rem;
+  }
+
+  .section_packs {
+    margin-bottom: 9rem;
+  }
+
+  .section_side-cta {
+    margin-bottom: 9rem;
+  }
+
+  .section_smart {
+    margin-bottom: 12rem;
+  }
+
+  .services_content {
+    grid-template-columns: 1fr;
+    grid-row-gap: 4rem;
+  }
+
+  .text-mono_sticky {
+    position: static;
+  }
+
+  .packs_words {
+    flex-direction: row;
+    gap: 2rem;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+  }
+
+  .packs_item.is-first,
+  .packs_item.is-second {
+    padding-bottom: 6rem;
+  }
+
+  .smart_content {
+    grid-template-columns: 1fr;
+    grid-row-gap: 4rem;
+  }
+
+  .smart_content .text-mono_sticky {
+    position: static;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 1rem;
+  }
+
+  .smart_list {
+    gap: 6rem;
+  }
+}
+
+/* Mobile Landscape & Large Phones (480px - 767px) */
+@media screen and (max-width: 767px) {
+  :root {
+    --font-h1: 5.5rem;
+    --line-height-h1: 4.5rem;
+    --letter-spacing-h1: -0.2rem;
+
+    --font-h2: 4rem;
+    --line-height-h2: 3.3rem;
+    --letter-spacing-h2: -0.15rem;
+
+    --font-h3: 2.5rem;
+    --line-height-h3: 2.3rem;
+
+    --font-main: 1.2rem;
+    --line-height-main: 1.6rem;
+
+    --container-padding: 1.25rem;
+    --border-radius: 0.25rem;
+  }
+
+  .cta_visual {
+    height: 3.2rem;
+    border-radius: 0.2rem;
+  }
+
+  .cta_visual.active {
+    width: 4.5rem;
+  }
+
+  .section_intro {
+    margin-top: 2rem;
+    margin-bottom: 7rem;
+  }
+
+  .intro_component {
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.75rem;
+  }
+
+  .packs_component {
+    gap: 4.5rem;
+  }
+
+  .packs_description_wrapper {
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
+  }
+
+  .packs_item {
+    padding-bottom: 5rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    gap: 2rem;
+  }
+
+  .side_cta_component {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .side_cta_content {
+    max-width: 100%;
+    gap: 2rem;
+  }
+
+  .section_smart {
+    margin-bottom: 10rem;
+  }
+
+  .smart_component {
+    gap: 5rem;
+  }
+
+  .smart_item {
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.25rem;
+  }
+
+  .smart_list {
+    gap: 4.5rem;
+  }
+}
+
+/* Small Mobile Phones (<480px) */
+@media screen and (max-width: 479px) {
+  :root {
+    --font-h1: 4.5rem;
+    --line-height-h1: 3.8rem;
+    --letter-spacing-h1: -0.15rem;
+
+    --font-h2: 3.2rem;
+    --line-height-h2: 2.7rem;
+    --letter-spacing-h2: -0.12rem;
+
+    --font-h3: 2.1rem;
+    --line-height-h3: 2rem;
+    --letter-spacing-h3: -0.08rem;
+
+    --font-main: 1.15rem;
+    --line-height-main: 1.55rem;
+
+    --container-padding: 1rem;
+  }
+
+  .cta_visual {
+    height: 2.6rem;
+    border-radius: 0.15rem;
+  }
+
+  .cta_visual.active {
+    width: 3.8rem;
+  }
+
+  .hero_bottom {
+    bottom: 2rem;
+  }
+
+  .section_intro {
+    margin-bottom: 5.5rem;
+  }
+
+  .section_packs {
+    margin-bottom: 6rem;
+  }
+
+  .section_side-cta {
+    margin-bottom: 6rem;
+  }
+
+  .section_smart {
+    margin-bottom: 7rem;
+  }
+
+  .packs_words {
+    gap: 1.2rem;
+  }
+
+  .smart_list {
+    gap: 3.5rem;
+  }
+}
