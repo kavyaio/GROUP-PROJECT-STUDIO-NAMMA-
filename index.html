@@ -4,8 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Studio Namma</title>
+
+  <link rel="icon" type="image/x-icon" href="fav-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./nav.css">
+
+  
   <style>
     .content {
       display: flex;
@@ -13,13 +23,26 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      border: 3px solid black;
-      font-size: 250%;
+      width: 100%;
+      padding: 0 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .saira-extra-condensed-black,
+    .content>h1 {
+      font-family: "Saira Extra Condensed", sans-serif;
+      font-weight: 900;
+      font-size: 250px;
+      line-height: 0.85;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin: 0;
     }
 
     .animate {
       transform: rotateX(90deg);
-      transition-duration: 1s;
+      transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
       transform-origin: bottom;
       text-align: center;
     }
@@ -34,70 +57,251 @@
       pointer-events: none;
     }
 
+    .mono-sub {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-size: 14.5px;
+      letter-spacing: 0.09em;
+      font-family: "GT Pressura Mono Regular Regular", monospace, sans-serif;
+      color: black;
+    }
+
+    .pop-in {
+      opacity: 0;
+      transform: scale(0.6) translateY(15px);
+      transition: opacity 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .pop-in.show {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    .quote-text {
+      font-size: clamp(24px, 3.5vw, 48px);
+      line-height: 1.25;
+      font-weight: 500;
+      max-width: 900px;
+      font-family: "GT Pressura Mono Regular Regular", monospace, sans-serif;
+    }
+
     .slideImage {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      gap: 20px;
       overflow: hidden;
+      padding: 60px 40px;
     }
 
     .slideImage>div>img {
       width: 100%;
+      border-radius: 8px;
     }
 
     .left {
       transform: translateX(-50%) translateY(40%) rotateZ(-20deg);
-      transition-duration: 0.5s;
+      transition: transform 0.5s ease-out;
     }
 
     .right {
       transform: translateX(50%) translateY(40%) rotateZ(20deg);
-      transition-duration: 0.5s;
+      transition: transform 0.5s ease-out;
     }
 
     .slideImage>.show>img {
-      transform: translateX(0);
+      transform: translateX(0) translateY(0) rotateZ(0deg);
     }
-
 
     #cursor {
       position: fixed;
       left: 0;
       top: 0;
-      width: 20px;
-      height: 20px;
-      background: #4f46e5;
+      width: 16px;
+      height: 16px;
+      background: #1800ff;
       border-radius: 50%;
       pointer-events: none;
-      transform: translate(150%, 150%);
-      z-index: 9999;
-      overflow: hidden;
-      transition: width .3s, height .3s, border-radius .3s;
+      transform: translate(-50%, -50%);
+      z-index: 10001;
+      display: block;
     }
 
     #videoCursor {
       position: fixed;
       left: 0;
       top: 0;
-      transform: translate(0%, 0%);
-      border: 2px solid black;
-      z-index: 9999;
-      width: 100px;
-      height: 180px;
+      width: 220px;
+      height: 260px;
+      border-radius: 16px;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(0px, 0px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       display: none;
-      transition: width .3s, height .3s, border-radius .3s;
+      background: #000;
     }
 
     #videoCursor iframe {
       width: 100%;
       height: 100%;
+      border: 0;
+      border-radius: 16px;
+      pointer-events: none;
+    }
+
+    .video-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      padding: 0 15px;
+      box-sizing: border-box;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 140%;
+      height: 140%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border: 0;
+    }
+   .quote-section {
+  position: relative;
+  width: 100%;
+  height: auto;           /* 👈 Prevents forcing a 100vh gap */
+  min-height: 100vh;       /* 👈 Adjust this (e.g. 40vh, 50vh, 60vh) to change screen height */
+  padding: 100px 20px;     /* 👈 Adjust 60px to change top/bottom pixel spacing */
+  box-sizing: border-box;
+}
+
+
+    .quote-wrapper {
+      max-width: 1650px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .quote-heading {
+      font-family: "Saira Extra Condensed", sans-serif;
+      font-weight: 900;
+      font-size: clamp(50px, 7.8vw, 100px);
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin-top: 20px;
+      color: #000000;
+    }
+
+    .underline-text {
+      text-decoration: underline;
+      text-underline-offset: 8px;
+      text-decoration-thickness: 4px;
+    }
+
+    .playground-section {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 40px 20px 40px;
+      box-sizing: border-box;
+    }
+
+    .playground-row-1 {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 30px;
+    }
+
+    .selected-projects-label {
+      font-family: "GT Pressura Mono Regular Regular", monospace, sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #000000;
+    }
+
+    .playground-row-2 {
+      width: 100%;
+      padding-top: 100px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .services-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 150px 20px;
+      box-sizing: border-box;
+    }
+
+    .services-label {
+      position: absolute;
+      left: 30px;
+      top: 70px;
+      font-family: "GT Pressura Mono Regular Regular", monospace, sans-serif;
+      font-size: 13.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #000000;
+    }
+
+    .services-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 1200px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .services-wrapper > h1 {
+      font-family: "Saira Extra Condensed", sans-serif;
+      font-weight: 900;
+      font-size: 100px;
+      line-height: 0.88;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin: 0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      color: #000000;
     }
   </style>
 </head>
 
 <body>
-  <div id="cursor">
-  </div>
+  <div id="cursor"></div>
 
   <div id="videoCursor">
     <iframe src="https://player.vimeo.com/video/1127104834?background=1&autoplay=1&muted=1&loop=1" frameborder="0"
@@ -106,32 +310,42 @@
   </div>
 
   <section class="content">
-    <h1 class="animate">WE THINK</h1>
-    <h1 class="animate">CRAFT AND</h1>
-    <h1 class="animate">DESIGN</h1>
+    <h1 class="animate saira-extra-condensed-black">WE THINK</h1>
+    <h1 class="animate saira-extra-condensed-black">CRAFT AND</h1>
+    <h1 class="animate saira-extra-condensed-black">DESIGN</h1>
   </section>
 
-  <section class="content">
-    <iframe
-      src="https://player.vimeo.com/video/1127104834?background=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1"
-      frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-      referrerpolicy="strict-origin-when-cross-origin" title="Showreel_Namma_EN" data-ready="true">
-    </iframe>
+  <section class="content video-section">
+    <div class="video-wrapper">
+      <iframe
+        src="https://player.vimeo.com/video/1127104834?background=1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1"
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" title="Showreel_Namma_EN" data-ready="true">
+      </iframe>
+    </div>
   </section>
 
-  <section class="content">
-    <p>Creative studio building premium Brands</p>
-    <h2 class="animate">It’s never “just a website.”
-      Every detail matters.
-      We craft digital experiences.
-      Your design. Our obsession.
-      Your brand. Our playground.</h2>
+  <section class="content quote-section">
+    <div class="quote-wrapper">
+      <p class="mono-sub animate pop-in">CREATIVE STUDIO BUILDING PREMIUM BRANDS</p>
+      <h2 class="animate quote-heading">
+        IT’S NEVER “JUST A WEBSITE.”<br>
+        EVERY <span class="underline-text">DETAIL</span> MATTERS.<br>
+        WE CRAFT DIGITAL EXPERIENCES.<br>
+        YOUR DESIGN. OUR OBSESSION.<br>
+        YOUR BRAND. OUR <span class="underline-text">PLAYGROUND.</span>
+      </h2>
+    </div>
   </section>
 
-  <section class="content">
-    <h1 class="animate">PLAYGROUND</h1>
+  <section class="content playground-section">
+    <div class="playground-row-1">
+      <span class="selected-projects-label">SELECTED PROJECTS</span>
+    </div>
+    <div class="playground-row-2">
+      <h1 class="animate saira-extra-condensed-black">PLAYGROUND</h1>
+    </div>
   </section>
-
 
   <section class="slideImage">
     <div>
@@ -156,20 +370,23 @@
     </div>
   </section>
 
-
-  <section class="content art">
-    <h1 class="animate">ART DIRECTION</h1>
-    <h1 class="animate">BRANDING</h1>
-    <h1 class="animate">WEBFLOW</h1>
+  <section class="content services-section art">
+    <span class="services-label">SERVICES</span>
+    <div class="services-wrapper">
+      <h1 class="animate saira-extra-condensed-black">ART DIRECTION</h1>
+      <h1 class="animate saira-extra-condensed-black">BRANDING</h1>
+      <h1 class="animate saira-extra-condensed-black">WEBFLOW</h1>
+      <h1 class="animate saira-extra-condensed-black">UI/UX DESIGN</h1>
+      <h1 class="animate saira-extra-condensed-black">GSAP ANIMATIONS</h1>
+      <h1 class="animate saira-extra-condensed-black">ADVERTISING</h1>
+      <h1 class="animate saira-extra-condensed-black">SEO & CONTENT</h1>
+    </div>
   </section>
 </body>
 <script src="navbar.js"></script>
 
 <script>
-  let texts = document.querySelectorAll(".content > .animate");
-  console.log(texts);
-
-
+  let texts = document.querySelectorAll(".animate");
 
   let observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -186,16 +403,11 @@
     observer.observe(text);
   })
 
-
   let observer2 = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting == true) {
         entry.target.classList.add("show")
-
       }
-      // else{
-      //   entry.target.classList.remove("show")
-      // }
     })
   })
 
@@ -205,58 +417,78 @@
     observer2.observe(img)
   })
 
-
-  let list = document.querySelectorAll(".art > h1");
+  let list = document.querySelectorAll(".art h1");
 
   list.forEach((element) => {
     element.addEventListener("mouseenter", (event) => {
-      console.log(event.target)
       list.forEach((text) => {
-        if (text.innerText == event.target.innerText) {
-          text.style.color = "black"
+        if (text.innerText === event.target.innerText) {
+          text.style.color = "#000000";
         }
         else {
-          text.style.color = "gray"
+          text.style.color = "#888888";
         }
-      })
-    })
-  })
+      });
+    });
 
-
-
-
-  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-
-  const cursor = document.getElementById("cursor");
-  let videoCursor = document.getElementById("videoCursor")
-
-  document.addEventListener("mousemove", (e) => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-    videoCursor.style.left = e.clientX + "px";
-    videoCursor.style.top = e.clientY + "px";
-  });
-
-  const sections = document.querySelectorAll(".content");
-
-  sections.forEach((section, index) => {
-    section.addEventListener("mouseenter", () => {
-      if (index === 0) {
-        videoCursor.style.background = "transparent";
-        videoCursor.style.transform = "translate(20%, 20%)";
-        videoCursor.style.display = "block";
-        cursor.style.display = "none"
-      } else {
-        cursor.style.display = "block"
-        cursor.style.width = "20px";
-        cursor.style.height = "20px";
-        cursor.style.background = "#4f46e5";
-        cursor.style.transform = "translate(150%, 150%)";
-        videoCursor.style.display = "none";
-      }
+    element.addEventListener("mouseleave", () => {
+      list.forEach((text) => {
+        text.style.color = "#000000";
+      });
     });
   });
 
+  const cursor = document.getElementById("cursor");
+  const videoCursor = document.getElementById("videoCursor");
+  const sections = document.querySelectorAll(".content");
+  let currentSectionIndex = 0;
+
+  let mouseX = 0, mouseY = 0;
+  let videoX = 0, videoY = 0;
+
+  function updateCursorState() {
+    if (document.body.classList.contains("menu-open")) {
+      videoCursor.style.display = "none";
+      cursor.style.display = "block";
+    } else if (currentSectionIndex === 0) {
+      videoCursor.style.display = "block";
+      cursor.style.display = "block";
+    } else {
+      videoCursor.style.display = "none";
+      cursor.style.display = "block";
+    }
+  }
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.style.left = mouseX + "px";
+    cursor.style.top = mouseY + "px";
+    updateCursorState();
+  });
+
+  function animateVideoCursor() {
+    videoX += (mouseX - videoX) * 0.12;
+    videoY += (mouseY - videoY) * 0.12;
+
+    videoCursor.style.left = videoX + "px";
+    videoCursor.style.top = videoY + "px";
+
+    requestAnimationFrame(animateVideoCursor);
+  }
+  animateVideoCursor();
+
+  sections.forEach((section, index) => {
+    section.addEventListener("mouseenter", () => {
+      currentSectionIndex = index;
+      updateCursorState();
+    });
+  });
+
+  const observerMenu = new MutationObserver(() => {
+    updateCursorState();
+  });
+  observerMenu.observe(document.body, { attributes: true, attributeFilter: ["class"] });
 </script>
 
 </html>
