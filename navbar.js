@@ -95,7 +95,12 @@ function createListElement(value) {
         window.location.href = "index.html";
       } else if (value === "APPROACH") {
         window.location.href = "approach.html";
-      } else {
+      
+      }
+      else if (value === "PLANS") {
+        window.location.href = "plans.html";
+      }
+      else {
         alert(value);
       }
     });

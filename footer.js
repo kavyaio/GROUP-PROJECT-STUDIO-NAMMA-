@@ -175,7 +175,7 @@
     requestAnimationFrame(() => fitNammaText());
     window.addEventListener("resize", fitNammaText, { passive: true });
 
-    // Observer for LET'S WORK & TOGETHER headings — ONE-WAY (stay shown once revealed)
+    // Observer for LET'S WORK & TOGETHER headings - ONE-WAY (stay shown once revealed)
     const animHeadings = footer.querySelectorAll(".animate:not(#footerGiantNamma)");
     if (animHeadings.length && typeof IntersectionObserver !== "undefined") {
       const footerObserver = new IntersectionObserver((entries) => {
@@ -183,14 +183,14 @@
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
           }
-          // no remove — they stay shown
+          // no remove - they stay shown
         });
       }, { threshold: 0.1 });
 
       animHeadings.forEach((h) => footerObserver.observe(h));
     }
 
-    // Observer for NAMMA only — TWO-WAY (hides again on back scroll)
+    // Observer for NAMMA only - TWO-WAY (hides again on back scroll)
     if (giantNamma && typeof IntersectionObserver !== "undefined") {
       const nammaObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -212,4 +212,3 @@
     initFooter();
   }
 })();
-
