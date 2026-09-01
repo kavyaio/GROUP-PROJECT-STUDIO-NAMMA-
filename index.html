@@ -14,8 +14,9 @@
     href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./nav.css">
+  <link rel="stylesheet" href="./footer.css">
 
-  
+
   <style>
     .content {
       display: flex;
@@ -121,7 +122,7 @@
       background: #1800ff;
       border-radius: 50%;
       pointer-events: none;
-      transform: translate(-50%, -50%);
+      transform: translate(10px, 10px);
       z-index: 10001;
       display: block;
     }
@@ -182,14 +183,18 @@
       pointer-events: none;
       border: 0;
     }
-   .quote-section {
-  position: relative;
-  width: 100%;
-  height: auto;           /* 👈 Prevents forcing a 100vh gap */
-  min-height: 100vh;       /* 👈 Adjust this (e.g. 40vh, 50vh, 60vh) to change screen height */
-  padding: 100px 20px;     /* 👈 Adjust 60px to change top/bottom pixel spacing */
-  box-sizing: border-box;
-}
+
+    .quote-section {
+      position: relative;
+      width: 100%;
+      height: auto;
+      /* 👈 Prevents forcing a 100vh gap */
+      min-height: 100vh;
+      /* 👈 Adjust this (e.g. 40vh, 50vh, 60vh) to change screen height */
+      padding: 100px 20px;
+      /* 👈 Adjust 60px to change top/bottom pixel spacing */
+      box-sizing: border-box;
+    }
 
 
     .quote-wrapper {
@@ -257,16 +262,15 @@
       width: 100%;
       height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 150px 20px;
+      padding: 0 40px;
       box-sizing: border-box;
     }
 
     .services-label {
       position: absolute;
-      left: 30px;
+      left: 40px;
       top: 70px;
       font-family: "GT Pressura Mono Regular Regular", monospace, sans-serif;
       font-size: 13.5px;
@@ -275,27 +279,60 @@
       color: #000000;
     }
 
+    .services-preview-container {
+      position: absolute;
+      left: 50px;
+      top: 50%;
+      transform: translateY(-50%) scale(0);
+      transform-origin: center center;
+      width: 440px;
+      height: 275px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: top 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.25s ease;
+      z-index: 10;
+      background: #000;
+    }
+
+    .services-preview-container.show-preview {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+
+    .services-preview-container video,
+    .services-preview-container iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 0;
+      border-radius: 12px;
+      display: block;
+      pointer-events: none;
+    }
+
     .services-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      max-width: 1200px;
       width: 100%;
       text-align: center;
     }
 
-    .services-wrapper > h1 {
+    .services-wrapper>h1 {
       font-family: "Saira Extra Condensed", sans-serif;
       font-weight: 900;
-      font-size: 100px;
+      font-size: 130px;
       line-height: 0.88;
       letter-spacing: -0.01em;
       text-transform: uppercase;
       margin: 0;
       cursor: pointer;
-      transition: color 0.3s ease;
       color: #000000;
+      transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
     }
   </style>
 </head>
@@ -372,123 +409,177 @@
 
   <section class="content services-section art">
     <span class="services-label">SERVICES</span>
+
+    <!-- Dedicated Video Preview on the Left -->
+    <div class="services-preview-container" id="servicesPreviewContainer">
+      <video id="servicesPreviewVideo"
+        src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68bef694221ab31dc7a0898e_Home-artdirection-transcode.webm"
+        autoplay loop muted playsinline></video>
+    </div>
+
     <div class="services-wrapper">
-      <h1 class="animate saira-extra-condensed-black">ART DIRECTION</h1>
-      <h1 class="animate saira-extra-condensed-black">BRANDING</h1>
-      <h1 class="animate saira-extra-condensed-black">WEBFLOW</h1>
-      <h1 class="animate saira-extra-condensed-black">UI/UX DESIGN</h1>
-      <h1 class="animate saira-extra-condensed-black">GSAP ANIMATIONS</h1>
-      <h1 class="animate saira-extra-condensed-black">ADVERTISING</h1>
-      <h1 class="animate saira-extra-condensed-black">SEO & CONTENT</h1>
+      <h1 class="animate saira-extra-condensed-black"
+        data-video="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68bef694221ab31dc7a0898e_Home-artdirection-transcode.webm">
+        ART DIRECTION</h1>
+      <h1 class="animate saira-extra-condensed-black"
+        data-video="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68bef76a17912168bc67811f_Home-branding-transcode.webm">
+        BRANDING</h1>
+      <h1 class="animate saira-extra-condensed-black"
+        data-video="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68bef7ea54539b4433a39276_Webflow-home-transcode.webm">
+        WEBFLOW</h1>
+      <h1 class="animate saira-extra-condensed-black"
+        data-video="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68bef86a1717db6af24e06f2_UI-UX-Home-transcode.webm">
+        UI/UX DESIGN</h1>
+      <h1 class="animate saira-extra-condensed-black"
+        data-video="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F69f31d237bb976aa6e0bc834_Scene-1_webm.webm">
+        GSAP ANIMATIONS</h1>
+      <h1 class="animate saira-extra-condensed-black"
+        data-video="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68df9e1b94554da67438cec0_Ads-service-homeV3-transcode.mp4">
+        ADVERTISING</h1>
+      <h1 class="animate saira-extra-condensed-black"
+        data-video="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68befca9c05567e63bc4d4a0_seo%20content%20home-transcode.webm">
+        SEO & CONTENT</h1>
     </div>
   </section>
-</body>
-<script src="navbar.js"></script>
 
-<script>
-  let texts = document.querySelectorAll(".animate");
 
-  let observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting == true) {
-        entry.target.classList.add("show")
-      }
-      else {
-        entry.target.classList.remove("show")
-      }
-    })
-  })
 
-  texts.forEach((text) => {
-    observer.observe(text);
-  })
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+  <script>
+    let texts = document.querySelectorAll(".animate");
 
-  let observer2 = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting == true) {
-        entry.target.classList.add("show")
-      }
-    })
-  })
-
-  let images = document.querySelectorAll(".slideImage > div");
-
-  images.forEach((img) => {
-    observer2.observe(img)
-  })
-
-  let list = document.querySelectorAll(".art h1");
-
-  list.forEach((element) => {
-    element.addEventListener("mouseenter", (event) => {
-      list.forEach((text) => {
-        if (text.innerText === event.target.innerText) {
-          text.style.color = "#000000";
+    let observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting == true) {
+          entry.target.classList.add("show")
         }
         else {
-          text.style.color = "#888888";
+          entry.target.classList.remove("show")
+        }
+      })
+    })
+
+    texts.forEach((text) => {
+      observer.observe(text);
+    })
+
+    let observer2 = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting == true) {
+          entry.target.classList.add("show")
+        }
+      })
+    })
+
+    let images = document.querySelectorAll(".slideImage > div");
+
+    images.forEach((img) => {
+      observer2.observe(img)
+    })
+
+    // Services video preview and text dimming
+    const previewContainer = document.getElementById("servicesPreviewContainer");
+    const previewVideo = document.getElementById("servicesPreviewVideo");
+    const servicesSection = document.querySelector(".services-section");
+    const servicesList = document.querySelectorAll(".art h1");
+
+    servicesList.forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+        // 1. Highlight hovered item, dim others
+        servicesList.forEach((text) => {
+          text.style.color = (text === item) ? "#000000" : "#c5c5c5";
+        });
+
+        // 2. Switch video URL and autoplay
+        const videoUrl = item.getAttribute("data-video");
+        if (videoUrl && previewVideo) {
+          if (previewVideo.src !== videoUrl) {
+            previewVideo.src = videoUrl;
+          }
+          previewVideo.currentTime = 0;
+          previewVideo.play().catch(() => { });
+        }
+
+        // 3. Move preview container to the vertical line of the hovered word
+        if (previewContainer && servicesSection) {
+          const sectionRect = servicesSection.getBoundingClientRect();
+          const itemRect = item.getBoundingClientRect();
+          const targetTop = (itemRect.top - sectionRect.top) + (itemRect.height / 2);
+          previewContainer.style.top = targetTop + "px";
+
+          // 4. Trigger center-open pop animation
+          previewContainer.classList.remove("show-preview");
+          void previewContainer.offsetWidth; // force reflow
+          previewContainer.classList.add("show-preview");
+        }
+      });
+
+      item.addEventListener("mouseleave", () => {
+        // Reset all items to black
+        servicesList.forEach((text) => {
+          text.style.color = "#000000";
+        });
+
+        // Hide preview container
+        if (previewContainer) {
+          previewContainer.classList.remove("show-preview");
         }
       });
     });
 
-    element.addEventListener("mouseleave", () => {
-      list.forEach((text) => {
-        text.style.color = "#000000";
-      });
-    });
-  });
+    const cursor = document.getElementById("cursor");
+    const videoCursor = document.getElementById("videoCursor");
+    const sections = document.querySelectorAll(".content");
+    let currentSectionIndex = 0;
 
-  const cursor = document.getElementById("cursor");
-  const videoCursor = document.getElementById("videoCursor");
-  const sections = document.querySelectorAll(".content");
-  let currentSectionIndex = 0;
+    let mouseX = 0, mouseY = 0;
+    let videoX = 0, videoY = 0;
 
-  let mouseX = 0, mouseY = 0;
-  let videoX = 0, videoY = 0;
-
-  function updateCursorState() {
-    if (document.body.classList.contains("menu-open")) {
-      videoCursor.style.display = "none";
-      cursor.style.display = "block";
-    } else if (currentSectionIndex === 0) {
-      videoCursor.style.display = "block";
-      cursor.style.display = "block";
-    } else {
-      videoCursor.style.display = "none";
-      cursor.style.display = "block";
+    function updateCursorState() {
+      if (document.body.classList.contains("menu-open")) {
+        videoCursor.style.display = "none";
+        cursor.style.display = "block";
+      } else if (currentSectionIndex === 0) {
+        videoCursor.style.display = "block";
+        cursor.style.display = "block";
+      } else {
+        videoCursor.style.display = "none";
+        cursor.style.display = "block";
+      }
     }
-  }
 
-  document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + "px";
-    cursor.style.top = mouseY + "px";
-    updateCursorState();
-  });
-
-  function animateVideoCursor() {
-    videoX += (mouseX - videoX) * 0.12;
-    videoY += (mouseY - videoY) * 0.12;
-
-    videoCursor.style.left = videoX + "px";
-    videoCursor.style.top = videoY + "px";
-
-    requestAnimationFrame(animateVideoCursor);
-  }
-  animateVideoCursor();
-
-  sections.forEach((section, index) => {
-    section.addEventListener("mouseenter", () => {
-      currentSectionIndex = index;
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.left = mouseX + "px";
+      cursor.style.top = mouseY + "px";
       updateCursorState();
     });
-  });
 
-  const observerMenu = new MutationObserver(() => {
-    updateCursorState();
-  });
-  observerMenu.observe(document.body, { attributes: true, attributeFilter: ["class"] });
-</script>
+    function animateVideoCursor() {
+      videoX += (mouseX - videoX) * 0.12;
+      videoY += (mouseY - videoY) * 0.12;
+
+      videoCursor.style.left = videoX + "px";
+      videoCursor.style.top = videoY + "px";
+
+      requestAnimationFrame(animateVideoCursor);
+    }
+    animateVideoCursor();
+
+    sections.forEach((section, index) => {
+      section.addEventListener("mouseenter", () => {
+        currentSectionIndex = index;
+        updateCursorState();
+      });
+    });
+
+    const observerMenu = new MutationObserver(() => {
+      updateCursorState();
+    });
+    observerMenu.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  </script>
+</body>
 
 </html>
